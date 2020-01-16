@@ -4,10 +4,7 @@
 use std::cell::UnsafeCell;
 use std::{mem, ptr};
 
-#[inline(always)]
-pub const fn ptr_size_bits() -> usize {
-    mem::size_of::<usize>() * 8
-}
+pub const PTR_SIZE_BITS: usize = mem::size_of::<usize>() * 8;
 
 #[inline(always)]
 pub fn map_in_place_2<T, U, F: FnOnce(U, T) -> T>((k, v): (U, &mut T), f: F) {

@@ -205,7 +205,7 @@ impl<'a, K: 'a + Eq + Hash, V: 'a, S: BuildHasher + Clone> DashMap<K, V, S> {
                 Q: Hash + Eq + ?Sized,
             {
                 let hash = fxhash::hash(&key);
-                let shift = util::ptr_size_bits() - self.ncb;
+                let shift = util::PTR_SIZE_BITS - self.ncb;
 
                 (hash >> shift)
             }
@@ -217,7 +217,7 @@ impl<'a, K: 'a + Eq + Hash, V: 'a, S: BuildHasher + Clone> DashMap<K, V, S> {
                 Q: Hash + Eq + ?Sized,
             {
                 let hash = fxhash::hash(&key);
-                let shift = util::ptr_size_bits() - self.ncb;
+                let shift = util::PTR_SIZE_BITS - self.ncb;
 
                 (hash >> shift)
             }
